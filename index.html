@@ -13,7 +13,50 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div class="container"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <h1 class="city-name">Kyiv</h1>
+          <p class="date-time">
+            <span id="weekDay">Friday</span> |
+            <span id="dateMonth">11.08</span> |
+            <span id="currentTime">20:43</span>
+          </p>
+          <h2>
+            <span id="currentTemp">25</span>°C |°F
+            <span class="weather-icon" id="weatherIcon">🌥</span>
+          </h2>
+          <p>
+            <span id="todaysMaxTemp">28</span>°C
+            <span id="todaysMinTemp">23</span>°C
+          </p>
+        </div>
+        <div class="col-3">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search for a city"
+              aria-label="Search for a city"
+              aria-describedby="button-addon2"
+            />
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              id="button-addon2"
+            >
+              Search
+            </button>
+          </div>
+          <ul>
+            <li id="weatherDescription">Cloudy</li>
+            <li>Precipitation: <span id="currentPrecipitation">45</span>%</li>
+            <li>Humidity: <span id="currentHumidity">47</span>%</li>
+            <li>Wind: <span id="currentWind">1</span> km/h</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <script src="srs/app.js"></script>
   </body>
 </html>
