@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="srs/style.css" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-3">
+        <div class="col-6">
           <h1 class="city-name">Kyiv</h1>
           <p class="date-time">
             <span id="weekDay">Friday</span> |
@@ -23,15 +24,16 @@
             <span id="currentTime">20:43</span>
           </p>
           <h2>
-            <span id="currentTemp">25</span>°C |°F
+            <span id="currentTemp">25</span
+            ><span class="temp-units"> °C |°F</span>
             <span class="weather-icon" id="weatherIcon">🌥</span>
           </h2>
           <p>
-            <span id="todaysMaxTemp">28</span>°C
-            <span id="todaysMinTemp">23</span>°C
+            <span class="max-temp" id="todaysMaxTemp"><strong>28</strong></span
+            >°C &nbsp;&nbsp;&nbsp;<span id="todaysMinTemp">23</span>°C
           </p>
         </div>
-        <div class="col-3">
+        <div class="col-6">
           <div class="input-group mb-3">
             <input
               type="text"
@@ -49,7 +51,7 @@
             </button>
           </div>
           <ul>
-            <li id="weatherDescription">Cloudy</li>
+            <li class="description" id="weatherDescription">Cloudy</li>
             <li>Precipitation: <span id="currentPrecipitation">45</span>%</li>
             <li>Humidity: <span id="currentHumidity">47</span>%</li>
             <li>Wind: <span id="currentWind">1</span> km/h</li>
@@ -57,6 +59,12 @@
         </div>
       </div>
     </div>
+    <small
+      >This code by Anna P. on
+      <a href="https://github.com/fish-in-a-bowl/weather-app" target="blank"
+        >GitHub</a
+      ></small
+    >
     <script src="srs/app.js"></script>
   </body>
 </html>
