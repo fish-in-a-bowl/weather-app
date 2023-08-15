@@ -10,52 +10,54 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <h1 class="city-name">Kyiv</h1>
-          <p class="date-time">
-            <span id="weekDay">Friday</span> |
-            <span id="dateMonth">11.08</span> |
-            <span id="currentTime">20:43</span>
-          </p>
-          <h2>
-            <span id="currentTemp">25</span
-            ><span class="temp-units"> °C |°F</span>
-            <span class="weather-icon" id="weatherIcon">🌥</span>
-          </h2>
-          <p>
-            <span class="max-temp" id="todaysMaxTemp"><strong>28</strong></span
-            >°C &nbsp;&nbsp;&nbsp;<span id="todaysMinTemp">23</span>°C
-          </p>
-        </div>
-        <div class="col-6">
-          <div class="input-group mb-3">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Search for a city"
-              aria-label="Search for a city"
-              aria-describedby="button-addon2"
-            />
-            <button
-              class="btn btn-outline-secondary"
-              type="button"
-              id="button-addon2"
-            >
-              Search
-            </button>
+      <div class="weather-app-wrapper">
+        <div class="row">
+          <div class="col-6">
+            <h1 id="cityName"></h1>
+            <p class="date-time">
+              <span id="weekDay">Friday</span> |
+              <span id="dateMonth">11.08</span> |
+              <span id="currentTime">20:43</span>
+            </p>
+            <h2>
+              <span id="currentTemp"></span>
+              <span class="temp-units"> °C | F</span>
+              <span class="weather-icon" id="weatherIcon">🌥</span>
+            </h2>
+            <p class="feels-like">
+              Feels like <span id="feelsLikeTemp"></span> °C
+            </p>
           </div>
-          <ul>
-            <li class="description" id="weatherDescription">Cloudy</li>
-            <li>Precipitation: <span id="currentPrecipitation">45</span>%</li>
-            <li>Humidity: <span id="currentHumidity">47</span>%</li>
-            <li>Wind: <span id="currentWind">1</span> km/h</li>
-          </ul>
+          <div class="col-6">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search for a city"
+                aria-label="Search for a city"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                id="button-addon2"
+              >
+                Search
+              </button>
+            </div>
+            <ul>
+              <li class="description" id="weatherDescription"></li>
+              <li>Humidity: <span id="currentHumidity">47</span> %</li>
+              <li>Wind: <span id="currentWind">1</span> km/h</li>
+              <li>Pressure: <span id="currentPressure"></span> mb</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -65,6 +67,6 @@
         >GitHub</a
       ></small
     >
-    <script src="srs/app.js"></script>
+    <script src="src/app.js"></script>
   </body>
 </html>
