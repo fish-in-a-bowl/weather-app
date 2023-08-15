@@ -41,7 +41,15 @@ function displayCurrentWeather(response) {
   );
   document.querySelector("#currentPressure").innerHTML =
     response.data.temperature.pressure;
-  console.log(response);
+  document
+    .querySelector("#weatherIcon")
+    .setAttribute(
+      "src",
+      `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    );
+  document
+    .querySelector("#weatherIcon")
+    .setAttribute("alt", `${response.data.condition.description}`);
 }
 
 let apiKey = "96t803cd7offb2bbdf19a4c07431dacc";
