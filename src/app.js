@@ -1,5 +1,31 @@
+function formatDate() {
+  let date = new Date();
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  return `${day} ${hours}:${minutes}`;
+}
+document.querySelector("#currentTime").innerHTML = formatDate();
+
 function displayCurrentWeather(response) {
   document.querySelector("#cityName").innerHTML = response.data.city;
+
   document.querySelector("#currentTemp").innerHTML = Math.round(
     response.data.temperature.current
   );

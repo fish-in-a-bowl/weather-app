@@ -60,5 +60,8 @@ small {
 .description {
   font-weight: bold;
   color: #757272;
+}
+
+.description:first-letter {
   text-transform: capitalize;
 }
