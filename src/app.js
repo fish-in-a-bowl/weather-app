@@ -52,7 +52,21 @@ function displayCurrentWeather(response) {
     .setAttribute("alt", `${response.data.condition.description}`);
 }
 
-let apiKey = "96t803cd7offb2bbdf19a4c07431dacc";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Lviv&key=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = "96t803cd7offb2bbdf19a4c07431dacc";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayCurrentWeather);
+}
 
-axios.get(apiUrl).then(displayCurrentWeather);
+function handleSubmit(event) {
+  event.preventDefault();
+  cityInputElement = document.querySelector("#cityInput");
+  search(cityInputElement.value);
+}
+
+document.querySelector("#searchForm").addEventListener("submit", handleSubmit);
+document
+  .querySelector("#button-addon2")
+  .addEventListener("click", handleSubmit);
+
+search("Kyiv");

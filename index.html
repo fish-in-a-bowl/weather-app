@@ -31,22 +31,25 @@
             </p>
           </div>
           <div class="col-6">
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Search for a city"
-                aria-label="Search for a city"
-                aria-describedby="button-addon2"
-              />
-              <button
-                class="btn btn-outline-secondary"
-                type="button"
-                id="button-addon2"
-              >
-                Search
-              </button>
-            </div>
+            <form id="searchForm">
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cityInput"
+                  placeholder="Search for a city"
+                  aria-label="Search for a city"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="button-addon2"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
             <ul>
               <li class="description" id="weatherDescription"></li>
               <li>Humidity: <span id="currentHumidity">47</span> %</li>
