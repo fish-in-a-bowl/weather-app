@@ -23,7 +23,10 @@
             <p id="currentTime"></p>
             <p class="current-temp-line">
               <span class="current-temp" id="currentTemp"></span>
-              <span class="temp-units"> °C | F</span>
+              <span class="temp-units">
+                <a href="#" id="celsiusLink" class="active">°C</a>
+                |<a href="#" id="fahrenheitLink">°F</a>
+              </span>
               <img src="" alt="" id="weatherIcon" class="weather-icon" />
             </p>
             <p class="feels-like">
@@ -38,8 +41,7 @@
                   class="form-control"
                   id="cityInput"
                   placeholder="Search for a city"
-                  aria-label="Search for a city"
-                  aria-describedby="button-addon2"
+                  autocomplete="off"
                 />
                 <button
                   class="btn btn-outline-secondary"

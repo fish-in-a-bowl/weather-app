@@ -8,6 +8,10 @@ p {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
   padding-top: 30px;
@@ -42,10 +46,9 @@ small {
   color: #757272;
 }
 
-.temp-units {
-  font-size: 18px;
-  font-weight: lighter;
+.temp-units .active {
   color: black;
+  cursor: default;
 }
 
 .weather-icon {
@@ -55,10 +58,6 @@ small {
 
 .feels-like {
   padding-top: 10px;
-}
-
-.max-temp {
-  color: #757272;
 }
 
 .btn {

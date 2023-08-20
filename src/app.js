@@ -26,9 +26,10 @@ document.querySelector("#currentTime").innerHTML = formatDate();
 function displayCurrentWeather(response) {
   document.querySelector("#cityName").innerHTML = response.data.city;
 
-  document.querySelector("#currentTemp").innerHTML = Math.round(
-    response.data.temperature.current
-  );
+  celsiusTemp = response.data.temperature.current;
+  tempElement = document.querySelector("#currentTemp");
+  tempElement.innerHTML = Math.round(celsiusTemp);
+
   document.querySelector("#feelsLikeTemp").innerHTML = Math.round(
     response.data.temperature.feels_like
   );
@@ -64,9 +65,32 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function displayFahrenheitTemp(event) {
+  event.preventDefault;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault;
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  tempElement.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
+
 document.querySelector("#searchForm").addEventListener("submit", handleSubmit);
 document
   .querySelector("#button-addon2")
   .addEventListener("click", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheitLink");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsiusLink");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search("Kyiv");
