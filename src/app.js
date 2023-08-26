@@ -23,6 +23,35 @@ function formatDate() {
 }
 document.querySelector("#currentTime").innerHTML = formatDate();
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Sun", "Mon", "Tue", "Wed"];
+
+  forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-3">
+        <div class="forecast-weekday">${day}</div>
+        <img
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png"
+          alt=""
+          id="forecastWeatherIcon"
+          class="forecast-weather-icon"
+        />
+        <div class="forecast-temperature">
+        <span class="forecast-temp-max" id="forecastTempMax">31° </span
+        ><span class="forecast-temp-min" id="forecastTempMin">25°</span>
+        </div>
+      </div>
+      `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayCurrentWeather(response) {
   document.querySelector("#cityName").innerHTML = response.data.city;
 
@@ -94,3 +123,4 @@ let celsiusLink = document.querySelector("#celsiusLink");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search("Kyiv");
+displayForecast();
