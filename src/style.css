@@ -47,11 +47,6 @@ small {
   color: #757272;
 }
 
-.temp-units .active {
-  color: black;
-  cursor: default;
-}
-
 .weather-icon {
   font-size: 12px;
   margin: -40px 0px;
