@@ -23,7 +23,7 @@ function formatDate() {
 }
 document.querySelector("#currentTime").innerHTML = formatDate();
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Sun", "Mon", "Tue", "Wed"];
@@ -46,10 +46,16 @@ function displayForecast() {
         </div>
       </div>
       `;
+    console.log(response);
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  let apiKey = "96t803cd7offb2bbdf19a4c07431dacc";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayCurrentWeather(response) {
@@ -80,6 +86,8 @@ function displayCurrentWeather(response) {
   document
     .querySelector("#weatherIcon")
     .setAttribute("alt", `${response.data.condition.description}`);
+
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {
@@ -123,4 +131,3 @@ let celsiusLink = document.querySelector("#celsiusLink");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search("Kyiv");
-displayForecast();
